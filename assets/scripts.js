@@ -3,14 +3,18 @@ var startBtn = document.querySelector(".startbtn")
 var question = document.querySelector(".question")
 var openScreenSwitch = document.querySelector("#openscreen");
 var questionSwitch =document.querySelector(".nextquestion");
+var mainEl = document.querySelector("#main")
 
 
+startBtn.addEventListener("click", setTime);
 
-var secondsleft = 60;
+var secondsLeft = 75;
+var timerInterval ;
+
 function setTime(){
-var timerInterval = setInterval(function() {
+timerInterval = setInterval(function() {
     secondsLeft--;
-    timer.textContent = "Timer: "+ secondsleft;
+    timer.textContent = "Timer: "+ secondsLeft + " seconds left";
 
     if(secondsLeft === 0) {
       // Stops execution of action at set interval
@@ -20,9 +24,13 @@ var timerInterval = setInterval(function() {
     }
 
     }, 1000);
-}
+};
 
+function sendMessage() {
+    mainEl.textContent="Game Over."
+};
 
+setTime();
 var questions = [
     {
         questionTitle: "Commonly used data types DO NOT include the following: ",
