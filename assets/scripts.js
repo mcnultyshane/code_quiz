@@ -2,7 +2,26 @@ var timer = document.querySelector("#timer")
 var startBtn = document.querySelector(".startbtn")
 var question = document.querySelector(".question")
 var openScreenSwitch = document.querySelector("#openscreen");
-var questionSwitch =document.querySelector(".nextquestion")
+var questionSwitch =document.querySelector(".nextquestion");
+
+
+
+var secondsleft = 60;
+function setTime(){
+var timerInterval = setInterval(function() {
+    secondsLeft--;
+    timer.textContent = "Timer: "+ secondsleft;
+
+    if(secondsLeft === 0) {
+      // Stops execution of action at set interval
+    clearInterval(timerInterval);
+      // Calls function to create and append image
+    sendMessage();
+    }
+
+    }, 1000);
+}
+
 
 var questions = [
     {
@@ -32,3 +51,8 @@ var questions = [
     }
 ]
 
+questionSwitch.addEventListener("click", function() {
+    if (questions[1].choices !== answerkey) {
+
+    }
+});
