@@ -2,9 +2,8 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0 shrink-to-fit=no" >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="./assets/styles.css">
@@ -13,24 +12,39 @@
   </head>
 
   <body>
-    
     <main>
-      <header class="header">
-
-        <div class="score-timer">
-          <span id="score">View Highscores:</span>
-          <div><span id="timer">Timer: 75 seconds</span>
+      <header class="navbar">
+        <nav class="score-timer">
+          <a href="#" id="highscore">View Highscores</a>
+          <div class="game-timer">
+            <span class="navbar timer" id="timer1">Timer: <span id="timer2">0</span></span>
           </div>
-        </div>
-
+        </nav>
       </header>
-      <section class="question-box">
-        <div id="main"></div>
-        
-        <div class="startbtn">
-          <button class="button">Start Quiz</button>
-        </div>
 
+      <section class="question-box">
+        <div id="main">
+          <h1 class= "game-name">Javascript Coding Quiz</h1>
+          <p id= "intro">
+            Click the start button to begin our Code Quiz and activate the timer.  
+            <br>Try to answer all questions within the given time frame.
+            <br>Incorrect answers will penalize your time by 10 seconds.
+            <br>Your final time will be your final score.  Good Luck!
+          </p>
+          <button class="button" id="startbtn">Start Quiz</button>
+          <section id="quiz-answers">
+            <button class="answer-button"></button>
+            <button class="answer-button"></button>
+            <button class="answer-button"></button>
+            <button class="answer-button"></button>
+        </section>
+        <section id="input-field">
+            <label for="initials">Enter initials:</label>
+            <input type="text" name="initials" id="initials" placeholder="ex. ABC" />
+            <button id="submit-button">Submit</button>
+        </section>
+        <section id="right-wrong"></section>
+      </div>
 
       </section>
     </main>

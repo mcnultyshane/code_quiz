@@ -1,36 +1,19 @@
-var timer = document.querySelector("#timer")
-var startBtn = document.querySelector(".startbtn")
-var question = document.querySelector(".question")
-var openScreenSwitch = document.querySelector("#openscreen");
-var questionSwitch =document.querySelector(".nextquestion");
-var mainEl = document.querySelector("#main")
+var navBar = document.querySelector("nav");
+var highScore = document.getElementById("highscore");
+var timer = document.getElementById("timer2");
+var mainBox= document.getElementById("main");
+var startBtn = document.getElementById("startbtn");
+var intro = document.getElementById("intro");
+var answerbtns = document.getElementsByClassName("answerbuttons");
+var ansMessage = document.getElementsById("right-wrong");
+var submitBtn = document.getElementsByID("submit-button");
+var initials = document.getElementById("initials");
 
 
-startBtn.addEventListener("click", setTime);
 
-var secondsLeft = 75;
-var timerInterval ;
 
-function setTime(){
-timerInterval = setInterval(function() {
-    secondsLeft--;
-    timer.textContent = "Timer: "+ secondsLeft + " seconds left";
 
-    if(secondsLeft === 0) {
-      // Stops execution of action at set interval
-    clearInterval(timerInterval);
-      // Calls function to create and append image
-    sendMessage();
-    }
 
-    }, 1000);
-};
-
-function sendMessage() {
-    mainEl.textContent="Game Over."
-};
-
-setTime();
 var questions = [
     {
         questionTitle: "Commonly used data types DO NOT include the following: ",
@@ -57,10 +40,40 @@ var questions = [
         choices: ["commas", "curly brackets", "quotes", "parenthesis"],
         answerkey: "quotes"
     }
-]
+];
+
+
+startBtn.addEventListener("click", setTime);
+
+var score= 0;
+var secondsLeft = 75;
+var timerInterval;
+var timeOff = 10;
+
+function setTime(){
+timerInterval = setInterval(function() {
+    secondsLeft--;
+    timer.textContent = "Timer: "+ secondsLeft + " seconds left";
+
+    if(secondsLeft <= 0) {
+      // Stops execution of action at set interval
+    clearInterval(timerInterval);
+      // Calls function to create and append image
+    sendMessage();
+    }
+
+    }, 1000);
+};
+
+function sendMessage() {
+    mainEl.textContent="Game Over."
+};
+
+setTime();
+
 
 questionSwitch.addEventListener("click", function() {
     if (questions[1].choices !== answerkey) {
-
+        s
     }
 });
