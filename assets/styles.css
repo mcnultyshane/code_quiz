@@ -1,5 +1,6 @@
 * {
     box-sizing: border-box;
+    background-color: rgb(208, 247, 208);
 }
 
 body {
@@ -11,19 +12,19 @@ p {
 }
 
 button {
-    background: #ba251a;
+    background: #afba1a;
     color: white;
-    border: 1px solid #630c06;
+    border: 1px solid #afba1a98;
     border-radius: 5px;
     padding: 2px 10px;
     margin-right: 10px;
 }
 
 button:hover {
-    background: #630c06;
+    background: #afba1a98;
 }
 
-#main {
+#container {
     overflow: auto;
     max-width: 90%;
     display: block;
@@ -53,7 +54,7 @@ li {
     font-weight: bold;
 }
 
-.game-name {
+#title {
     margin: 15px 0;
     padding-bottom: 15px;
     text-align: center;
@@ -86,12 +87,7 @@ li {
     margin: 0 0 0 15px;
 }
 
-/* body:not(.user-is-tabbing) button:focus,
-body:not(.user-is-tabbing) input:focus,
-body:not(.user-is-tabbing) select:focus,
-body:not(.user-is-tabbing) textarea:focus {
-  outline: none;
-} */
+
 
 @media screen and (min-width: 1024px) {
     #container {

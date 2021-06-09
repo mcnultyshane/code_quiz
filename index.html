@@ -13,38 +13,39 @@
 
   <body>
     <main>
-      <header class="navbar">
-        <nav class="score-timer">
-          <a href="#" id="highscore">View Highscores</a>
+      <header>
+        <nav class="navbar score-timer bg-success text-white">
+          <a href="#" class="navbar-text float left text-white" id="highscore">View Highscores</a>
           <div class="game-timer">
-            <span class="navbar timer" id="timer1">Timer: <span id="timer2">0</span></span>
+            <span class="navbar-text float-right bg-success" >Timer: <span class="ticker bg-success" id="timer ">50</span></span>
           </div>
         </nav>
       </header>
 
       <section class="question-box">
-        <div id="main">
-          <h1 class= "game-name">Javascript Coding Quiz</h1>
-          <p id= "intro">
+        <div id="container" class="start-page mt-5">
+          <h1 id="title">Javascript Coding Quiz</h1>
+          <p id="intro">
             Click the start button to begin our Code Quiz and activate the timer.  
-            <br>Try to answer all questions within the given time frame.
-            <br>Incorrect answers will penalize your time by 10 seconds.
-            <br>Your final time will be your final score.  Good Luck!
+            <br />Try to answer all questions within the given time frame.
+            <br />
+            <br />Incorrect answers will penalize your time by 10 seconds.
+            <br />Your final time will be your final score.  Good Luck!
           </p>
           <button class="button" id="startbtn">Start Quiz</button>
-          <section id="quiz-answers">
+          <div id="quiz-answers">
             <button class="answer-button"></button>
             <button class="answer-button"></button>
             <button class="answer-button"></button>
             <button class="answer-button"></button>
-        </section>
-        <section id="input-field">
+          </div>
+          <section id="input-field">
             <label for="initials">Enter initials:</label>
-            <input type="text" name="initials" id="initials" placeholder="myname" />
+            <input type="text" name="initials" id="initials" placeholder="ex. JT" />
             <button id="submit-button">Submit</button>
-        </section>
-        <section id="right"></section>
-      </div>
+          </section>
+          <section id="right"></section>
+        </div>
 
       </section>
     </main>
