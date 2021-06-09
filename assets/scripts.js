@@ -7,9 +7,10 @@ var startBtn = document.getElementById("startbtn");
 var gameName = document.getElementsByClassName("game-name");
 var intro = document.getElementById("intro");
 var answerbtns = document.getElementsByClassName("answerbuttons");
+var qAnswers = document.getElementById('quiz-answers');
 var input = document.getElementById("input-field");
-var ansMessage = document.getElementsById("right-wrong");
-var submitBtn = document.getElementsByID("submit-button");
+var ansMessage = document.getElementById("right");
+var submitBtn = document.getElementById("submit-button");
 var initials = document.getElementById("initials");
 
 // setting up questions array
@@ -44,7 +45,7 @@ var questions = [{
 startBtn.addEventListener("click", setTime);
 
 var score = 0;
-var question = 0;
+var theQuestions = 0;
 var secondsLeft = 50;
 var timerInterval;
 var sArray = [];
@@ -61,7 +62,23 @@ function quizStr() {
 }
 
 function nextQuestion() {
-    // mainBox.className =
+    // mainBox.className = "results-page mt-5"
+    gameName.textContent = "Question " + (questions = 1);
+    gameName.setAttribute('class', 'h2');
+    intro.textContent = questions[theQuestions].title;
+    intro.className = 'h4';
+    intro.setAttribute('style', 'border-top: 1px double #ba251a; padding-top: 20px;')
+    
+    quizAnswers.style.display = 'block';
+    
+    answerButtons[0].textContent = questions[theQuestions].choices[0];
+    answerButtons[1].textContent = questions[theQuestions].choices[1];
+    answerButtons[2].textContent = questions[theQuestions].choices[2];
+    answerButtons[3].textContent = questions[theQuestions].choices[3]
+    
+    for (i = 0; i < answerbtns.length; i++) {
+        answerbtns[i].addEventListener('click', answers);
+    }
 
 };
 
@@ -81,7 +98,7 @@ function setTime() {
             // Calls function to create and append image
             sendMessage();
         };
-        if (question === 5) {
+        if (theQuestions === 5) {
             timer.textContent = secondsLeft;
             clearInterval(timerInterval);
         }
@@ -89,8 +106,25 @@ function setTime() {
 };
 
 function sendMessage() {
-    mainEl.textContent = "Game Over."
-};
+    qAnswers.style.display = "none";
+    // mainBox.className = 'quiz-page mt-5'
+    gameName.setAttribute("class", "h2");
+    intro.setAttribute("style", "border-top: 0");
+    intro.removeAttribute("class");
+    intro.textContent = "Your Final Score is " + score + ". Enter your initials.";
+    input.style.display = "block";
+
+    if (timer <= 0) {
+        gameName.textContent = "Time's Up!";
+
+    } else {
+        gameName.textContent = "Great Job.";
+    }
+
+    submitBtn.addEventListener("click", highScoreLoad);
+}
+
+
 
 function highScoreLoad(event) {
     event.preventDefault();
@@ -163,6 +197,11 @@ function highScorePull() {
     });
 
 };
+
+
+startBtn.addEventListener('click', quizStr);
+
+
 
 // function hideFirstTable() {
 

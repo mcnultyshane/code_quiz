@@ -1,0 +1,107 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: auto;
+}
+
+p {
+    margin: 15px 0;
+}
+
+button {
+    background: #ba251a;
+    color: white;
+    border: 1px solid #630c06;
+    border-radius: 5px;
+    padding: 2px 10px;
+    margin-right: 10px;
+}
+
+button:hover {
+    background: #630c06;
+}
+
+#main {
+    overflow: auto;
+    max-width: 90%;
+    display: block;
+    margin: auto;
+}
+
+#intro {
+    text-align: center;
+}
+
+.quiz-page,
+.results-page,
+.score-page {
+    text-align: left;
+}
+
+ul {
+    margin-left: 0;
+    padding-left: 0;
+}
+
+li {
+    background: white;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px 0;
+    font-weight: bold;
+}
+
+.game-name {
+    margin: 15px 0;
+    padding-bottom: 15px;
+    text-align: center;
+}
+
+#quiz-answers {
+    display: none;
+}
+
+.answer-button {
+    display: block;
+    margin: 15px 0;
+}
+
+.right {
+    display: none;
+    width: 100%;
+    font-style: italic;
+    color: gray;
+    margin: 20px 0;
+    padding-top: 10px;
+    border-top: 1px solid gray;
+}
+
+#input-field {
+    display: none;
+}
+
+#initials {
+    margin: 0 0 0 15px;
+}
+
+/* body:not(.user-is-tabbing) button:focus,
+body:not(.user-is-tabbing) input:focus,
+body:not(.user-is-tabbing) select:focus,
+body:not(.user-is-tabbing) textarea:focus {
+  outline: none;
+} */
+
+@media screen and (min-width: 1024px) {
+    #container {
+        max-width: 800px;
+    }
+  }
+
+@media screen and (max-width: 470px) {
+    #initials {
+        display: block;
+        margin: 15px 0;
+    }
+}
