@@ -106,6 +106,7 @@ function answers(event) {
         theQuestions++;
         score++;
         console.log(score);
+        nextQuestion();
 
         // message disappears after set time
         setTimeout(function () {
