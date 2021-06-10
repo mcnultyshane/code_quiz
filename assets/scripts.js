@@ -65,7 +65,7 @@ function quizStr() {
     startBtn.style.display = "none";
 };
 
-// change display to the next question
+// changes display to the next question
 function nextQuestion() {
 
     // change appearance of page
@@ -94,10 +94,6 @@ function nextQuestion() {
 };
 
 function answers(event) {
-    // checking that the button and answer values are the same
-    console.log('User chose: ' + event.target.textContent);
-    console.log('Correct answer: ' + questions[theQuestions].answer);
-
     // if selection is correct displays correct and increases score and theQuestions variables
     if (event.target.textContent === questions[theQuestions].answerkey) {
         ansMessage.style.display = 'block';
@@ -108,7 +104,7 @@ function answers(event) {
         console.log(score);
         nextQuestion();
 
-        // message disappears after set time
+        // right or wrong message appears and disappears
         setTimeout(function () {
             ansMessage.style.display = 'none';
         }, 800);
@@ -134,13 +130,13 @@ function answers(event) {
             ansMessage.style.display = 'none';
         }, 800);
 
-        // ends game if timer is less than 10 seconds, as 10 seconds will be removed
+        // ends game if timer is less than 10 seconds.
         if (secondsLeft < 10) {
             secondsLeft -= 10;
             sendMessage();
 
             // ends game if user is on the last question
-        } else if (theQuestions === 5) {
+        } else if (theQuestions === 4) {
             sendMessage();
 
             // else subtracts time from timer and moves onto next question
@@ -150,7 +146,7 @@ function answers(event) {
         };
     }
 };
-
+// building message for GameOver Screen
 function sendMessage() {
     qAnswers.style.display = "none";
     mainBox.className = 'quiz-page mt-5'
@@ -169,7 +165,7 @@ function sendMessage() {
 
     submitBtn.addEventListener("click", highScoreLoad);
 };
-
+// building function for storing scores and initials to local data
 function highScoreLoad(event) {
     event.preventDefault();
 
@@ -191,7 +187,7 @@ function highScoreLoad(event) {
 
     }
 };
-
+// building funtion for pulling the local storage data
 function highScoreShow() {
     storedScores = JSON.parse(localStorage.getItem('score'));
 
@@ -246,6 +242,7 @@ function highScorePull() {
 
 };
 
+// building funtion for timer
 function setTime() {
     timerInterval = setInterval(function () {
         timer.textContent = secondsLeft ;
@@ -253,9 +250,7 @@ function setTime() {
 
         if (secondsLeft < 1) {
             timer.textContent = 0;
-            // Stops execution of action at set interval
             clearInterval(timerInterval);
-            // Calls function to create and append image
             sendMessage();
         };
         if (theQuestions === 5) {
@@ -265,10 +260,9 @@ function setTime() {
     }, 1000);
 };
 
-startBtn.addEventListener("click", setTime);
-
-// event listener for when you click the start button
+// event listeners for when you click the start button
 startBtn.addEventListener('click', quizStr);
+startBtn.addEventListener("click", setTime);
 
 // loads parsed local storage data into score array
 highScoreShow();
